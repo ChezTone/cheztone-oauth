@@ -2,8 +2,12 @@ package org.cheztone.oauth;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 
 /**
@@ -12,11 +16,20 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
  */
 @Configuration
 @EnableWebSecurity
-@EnableResourceServer
-public class OAuthServerConfiguration extends AuthorizationServerConfigurerAdapter {
+@EnableAuthorizationServer
+public class OAuthServerConfiguration implements AuthorizationServerConfigurer {
 
-    @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        super.configure(security);
+
     }
+
+    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+        clients.configure(clients.inMemory());
+    }
+
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+
+    }
+
+
 }

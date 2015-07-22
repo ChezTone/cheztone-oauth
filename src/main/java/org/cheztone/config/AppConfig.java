@@ -12,8 +12,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = {"org.cheztone.app"})
-@Import({ OAuthServerConfiguration.class})
+@ComponentScan(basePackages = {"org.cheztone.oauth"})
 public class AppConfig {
 
 

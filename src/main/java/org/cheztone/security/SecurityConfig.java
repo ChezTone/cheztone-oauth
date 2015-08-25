@@ -13,7 +13,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        // Example of use : localhost:8080/oauth/authorize?grant_type=password&username=tone&password=pwd
+        // Example of use : http://localhost:8080/oauth/authorize?response_type=code&client_id=tone
         auth.inMemoryAuthentication().withUser("tone").password("pwd").roles("CLIENT");
     }
 

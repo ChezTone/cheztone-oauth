@@ -13,14 +13,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("tone").password("pwd").roles("ADMIN");
+        // Example of use : localhost:8080/oauth/authorize?grant_type=password&username=tone&password=pwd
+        auth.inMemoryAuthentication().withUser("tone").password("pwd").roles("CLIENT");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .antMatchers("/oauth/**").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/oauth/**").access("hasRole('ROLE_CLIENT')")
                 .and().formLogin();
 
     }

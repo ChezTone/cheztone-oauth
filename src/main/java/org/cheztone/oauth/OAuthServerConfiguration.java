@@ -31,7 +31,7 @@ public class OAuthServerConfiguration implements AuthorizationServerConfigurer {
 
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-                .withClient("client-with-registered-redirect")
+                .withClient("tone")
                 .authorizedGrantTypes("authorization_code")
                 .authorities("ROLE_CLIENT")
                 .scopes("read", "trust")

@@ -14,7 +14,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         // Example of use : http://localhost:8080/oauth/authorize?response_type=code&client_id=tone
-        auth.inMemoryAuthentication().withUser("tone").password("pwd").roles("CLIENT");
+        auth.inMemoryAuthentication().withUser("tone").password("tone").roles("CLIENT");
     }
 
     @Override

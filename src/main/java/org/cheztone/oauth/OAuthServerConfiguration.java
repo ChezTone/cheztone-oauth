@@ -26,17 +26,16 @@ public class OAuthServerConfiguration implements AuthorizationServerConfigurer {
     ClientDetailsService inMemoryClientDetailService;
 
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-
     }
 
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
                 .withClient("tone")
-                .authorizedGrantTypes("authorization_code")
+                .authorizedGrantTypes("password")
                 .authorities("ROLE_CLIENT")
                 .scopes("read", "trust")
                 .redirectUris("http://cheztone.org")
-                .secret("secret123")
+                .secret("tone")
                 .and()
                 .withClient("my-client-with-secret")
                 .authorizedGrantTypes("client_credentials", "password")

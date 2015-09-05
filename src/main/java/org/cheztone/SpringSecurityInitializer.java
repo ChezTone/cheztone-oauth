@@ -1,4 +1,4 @@
-package org.cheztone.config;
+package org.cheztone;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

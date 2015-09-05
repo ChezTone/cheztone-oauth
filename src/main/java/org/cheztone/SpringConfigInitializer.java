@@ -1,4 +1,4 @@
-package org.cheztone.config;
+package org.cheztone;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -18,5 +18,5 @@ public class SpringConfigInitializer extends AbstractAnnotationConfigDispatcherS
 	protected String[] getServletMappings() {
 		return new String[] { "/" };
 	}
-	
+
 }

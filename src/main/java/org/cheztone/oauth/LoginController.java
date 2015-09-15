@@ -1,5 +1,7 @@
 package org.cheztone.oauth;
 
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,7 +28,17 @@ public class LoginController {
             model.addObject("msg", "You've been logged out successfully.");
         }
         model.setViewName("login");
+        return model;
 
+    }
+
+    @RequestMapping(value = "/api")
+    public ModelAndView api(UsernamePasswordAuthenticationToken authentication) {
+        ModelAndView model = new ModelAndView();
+        if(authentication != null && authentication.isAuthenticated()) {
+            model.addObject("code", authentication.getCredentials());
+        }
+        model.setViewName("api");
         return model;
 
     }

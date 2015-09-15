@@ -36,7 +36,7 @@
 </head>
 <body onload='document.loginForm.username.focus();'>
 
-<h1>Cheztone Authentication</h1>
+<h1>Authentication</h1>
 
 <div id="login-box">
 

@@ -34,7 +34,6 @@ public class OAuthServerConfiguration implements AuthorizationServerConfigurer {
                 .authorizedGrantTypes("password")
                 .authorities("ROLE_CLIENT")
                 .scopes("read", "trust")
-                .redirectUris("http://cheztone.org")
                 .secret("tone")
                 .and()
                 .withClient("my-client-with-secret")

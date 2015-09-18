@@ -1,18 +1,15 @@
 package org.cheztone.security.config;
 
 import org.cheztone.security.PhotoInfo;
-import org.cheztone.security.PhotoService;
 import org.cheztone.security.impl.PhotoServiceImpl;
 import org.cheztone.security.mvc.AccessConfirmationController;
 import org.cheztone.security.mvc.AdminController;
-import org.cheztone.security.mvc.PhotoController;
 import org.cheztone.security.mvc.PhotoServiceUserController;
 import org.cheztone.security.oauth.SparklrUserApprovalHandler;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.http.MediaType;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
@@ -30,7 +27,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 

@@ -23,6 +23,7 @@
 
     <properties>
         <spring-context.version>4.1.6.RELEASE</spring-context.version>
+        <spring-security-core.version>4.0.2.RELEASE</spring-security-core.version>
         <spring-security-web.version>4.0.0.RELEASE</spring-security-web.version>
         <spring-security-oauth2.version>2.0.7.RELEASE</spring-security-oauth2.version>
         <javax.servlet.version>3.0.1</javax.servlet.version>
@@ -38,6 +39,11 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>${spring-context.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring-security-core.version}</version>
         </dependency>
 
         <dependency>

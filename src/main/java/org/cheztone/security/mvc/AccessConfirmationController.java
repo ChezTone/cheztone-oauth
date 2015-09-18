@@ -1,5 +1,6 @@
 package org.cheztone.security.mvc;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.common.util.OAuth2Utils;
 import org.springframework.security.oauth2.provider.AuthorizationRequest;
 import org.springframework.security.oauth2.provider.ClientDetails;
@@ -25,8 +26,10 @@ import java.util.Map;
 @SessionAttributes("authorizationRequest")
 public class AccessConfirmationController {
 
+	@Autowired
 	private ClientDetailsService clientDetailsService;
 
+    @Autowired
 	private ApprovalStore approvalStore;
 
 	@RequestMapping("/oauth/confirm_access")

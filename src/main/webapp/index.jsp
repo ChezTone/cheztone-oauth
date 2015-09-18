@@ -6,7 +6,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Sparklr</title>
+<title>Auth</title>
 <link type="text/css" rel="stylesheet"
 	href="webjars/bootstrap/3.0.3/css/bootstrap.min.css" />
 <script type="text/javascript" src="webjars/jquery/1.9.0/jquery.min.js"></script>
@@ -29,13 +29,11 @@
 
 	<div class="container">
 
-		<h1>Sparklr</h1>
+		<h1>Auth</h1>
 
 		<h2>Home</h2>
 
-		<p>This is a great site to store and view your photos.
-			Unfortunately, we don't have any services for printing your photos.
-			For that, you'll have to go to Tonr.</p>
+		<p>This is a great site to store and view your photos.</p>
 
 		<authz:authorize access="hasRole('ROLE_USER')">
 			<div class="form-horizontal">

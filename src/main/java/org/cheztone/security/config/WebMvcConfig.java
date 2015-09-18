@@ -10,7 +10,9 @@ import org.cheztone.security.mvc.PhotoServiceUserController;
 import org.cheztone.security.oauth.SparklrUserApprovalHandler;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.http.MediaType;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
@@ -29,10 +31,12 @@ import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Configuration
 @EnableWebMvc
+@ComponentScan(basePackages = {"org.cheztone.security"})
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
@@ -54,22 +58,14 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 		ContentNegotiatingViewResolver contentViewResolver = new ContentNegotiatingViewResolver();
 		contentViewResolver.setContentNegotiationManager(contentNegotiationManager.getObject());
-		contentViewResolver.setViewResolvers(Arrays.<ViewResolver> asList(viewResolver));
-		contentViewResolver.setDefaultViews(Arrays.<View> asList(defaultView));
+		contentViewResolver.setViewResolvers(Collections.<ViewResolver>singletonList(viewResolver));
+		contentViewResolver.setDefaultViews(Collections.<View>singletonList(defaultView));
 		return contentViewResolver;
 	}
 
 	@Bean
-	public PhotoServiceUserController photoServiceUserController(PhotoService photoService) {
-		PhotoServiceUserController photoServiceUserController = new PhotoServiceUserController();
-		return photoServiceUserController;
-	}
-
-	@Bean
-	public PhotoController photoController(PhotoService photoService) {
-		PhotoController photoController = new PhotoController();
-		photoController.setPhotoService(photoService);
-		return photoController;
+	public PhotoServiceUserController photoServiceUserController() {
+        return new PhotoServiceUserController();
 	}
 
 	@Bean
@@ -113,7 +109,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		photo.setId(id);
 		photo.setName("photo" + id + ".jpg");
 		photo.setUserId(userId);
-		photo.setResourceURL("/org/springframework/security/oauth/examples/sparklr/impl/resources/" + photo.getName());
+		photo.setResourceURL("/resources/" + photo.getName());
 		return photo;
 	}
 

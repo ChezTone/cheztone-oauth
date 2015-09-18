@@ -2,6 +2,7 @@ package org.cheztone.security.mvc;
 
 import org.cheztone.security.PhotoInfo;
 import org.cheztone.security.PhotoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,7 @@ import java.util.Iterator;
 @Controller
 public class PhotoController {
 
+	@Autowired
 	private PhotoService photoService;
 
 	@RequestMapping("/photos/{photoId}")

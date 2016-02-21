@@ -10,12 +10,12 @@ public class SpringConfigInitializer extends AbstractAnnotationConfigDispatcherS
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return  new Class[] { WebMvcConfig.class };
+		return  new Class[] { WebMvcConfig.class  };
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class[] { SecurityConfiguration.class };
+		return new Class[] {};
 	}
 
 	@Override

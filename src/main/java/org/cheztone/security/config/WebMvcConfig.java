@@ -1,6 +1,7 @@
 package org.cheztone.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -9,6 +10,10 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
+import org.springframework.security.oauth2.provider.token.DefaultAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
+import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -17,6 +22,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableWebSecurity
 @ComponentScan(basePackages = {"org.cheztone.security"})
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
+
+    @Bean
+    public AuthorizationServerTokenServices authorizationServerTokenServices(){
+        DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
+        defaultTokenServices.setTokenStore(new InMemoryTokenStore());
+        return defaultTokenServices;
+    }
+
 
     @Configuration
     @EnableAuthorizationServer
@@ -28,15 +41,15 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         @Override
         public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
             endpoints.authenticationManager(cheztoneAuthenticationManager);
+            endpoints.accessTokenConverter(new DefaultAccessTokenConverter());
         }
 
         @Override
         public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
             clients.inMemory()
-                    .withClient("acme")
-                    .secret("acmesecret")
+                    .withClient("user")
                     .authorizedGrantTypes("authorization_code", "refresh_token",
-                            "password").scopes("openid");
+                            "password","token").scopes("openid");
         }
     }
 

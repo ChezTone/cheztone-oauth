@@ -1,4 +1,4 @@
-package org.cheztone.security.config;
+package org.cheztone.security.service;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,7 +17,7 @@ public class CheztoneUserDetailsService implements UserDetailsService {
             public Collection<? extends GrantedAuthority> getAuthorities() {
                 GrantedAuthority grantedAuthority = new GrantedAuthority() {
                     public String getAuthority() {
-                        return "USER";
+                        return "ROLE_USER";
                     }
                 };
                 return Collections.singleton(grantedAuthority);

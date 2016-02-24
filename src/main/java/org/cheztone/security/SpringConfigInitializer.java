@@ -1,5 +1,6 @@
-package org.cheztone.security.config;
+package org.cheztone.security;
 
+import org.cheztone.security.config.WebMvcConfig;
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

@@ -1,14 +1,17 @@
 # cheztone-oauth [![Build Status](https://travis-ci.org/ChezTone/cheztone-oauth.svg?branch=master)](https://travis-ci.org/ChezTone/cheztone-oauth)
 
-Cheztone OAuth server
+Cheztone OAuth server. 
 
-# Tooling
+This first version is a simple OAuth server configuration that using an inMemoryTokenStore and a fixed user repository.
+As soon as possible, this project will be updated to use other data sources. As I have a good feeling with mongoDB, I think it will be the first implementation that I will allow to use.
 
-this project is build on java and spring 4.
-it's build using with maven.
-It should run in a servlet 3 ready application server like tomcat 8. 
+## Stack
 
-## Usage
+This project is build on java 8 with. it's build using [Maven®](https://maven.apache.org/).
+It should run in a servlet 3 ready application server like [Tomcat 8](https://tomcat.apache.org/). 
+Here were are using [Spring®](https://projects.spring.io/spring-framework/) Java Based configuration.
+
+## How it works
 
 This version of project use in memory token store, and a unique user.
 You can use the user : user and it's password : paswword.

@@ -14,7 +14,7 @@ Here were are using [Spring®](https://projects.spring.io/spring-framework/) Jav
 ## How it works
 
 This version of project use in memory token store, and a unique user.
-You can use the user : user and it's password : paswword.
+You can use the user : user and it's password : password.
 
 You can create a post request to get an access token using :
  POST @ localhost:8080/oauth/token?grant_type=password 

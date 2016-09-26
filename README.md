@@ -1,5 +1,6 @@
-# cheztone-oauth
-Cheztone OAuth server
+# cheztone-oauth ![Build Status](https://travis-ci.org/ChezTone/cheztone-oauth.svg?branch=master)
+
+Simple OAuth server
 
 ## Usage
 

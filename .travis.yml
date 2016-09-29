@@ -1,1 +1,10 @@
+sudo: requiered
 language: java
+services:
+   - docker
+after_script:
+  - docker build -t cheztone/cheztone-oauth .
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+      docker push cheztone/cheztone-oauth;
+      fi
